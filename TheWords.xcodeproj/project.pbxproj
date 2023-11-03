@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		B7159E192AF51758008521C8 /* TheWordsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7159E182AF51758008521C8 /* TheWordsApp.swift */; };
-		B7159E1B2AF51758008521C8 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7159E1A2AF51758008521C8 /* ContentView.swift */; };
+		B7159E1B2AF51758008521C8 /* StartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7159E1A2AF51758008521C8 /* StartView.swift */; };
 		B7159E1D2AF5175C008521C8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B7159E1C2AF5175C008521C8 /* Assets.xcassets */; };
 		B7159E202AF5175C008521C8 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B7159E1F2AF5175C008521C8 /* Preview Assets.xcassets */; };
 		B7159E2A2AF5175C008521C8 /* TheWordsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7159E292AF5175C008521C8 /* TheWordsTests.swift */; };
@@ -36,7 +36,7 @@
 /* Begin PBXFileReference section */
 		B7159E152AF51758008521C8 /* TheWords.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TheWords.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B7159E182AF51758008521C8 /* TheWordsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TheWordsApp.swift; sourceTree = "<group>"; };
-		B7159E1A2AF51758008521C8 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		B7159E1A2AF51758008521C8 /* StartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartView.swift; sourceTree = "<group>"; };
 		B7159E1C2AF5175C008521C8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B7159E1F2AF5175C008521C8 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		B7159E252AF5175C008521C8 /* TheWordsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TheWordsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -95,7 +95,7 @@
 			isa = PBXGroup;
 			children = (
 				B7159E182AF51758008521C8 /* TheWordsApp.swift */,
-				B7159E1A2AF51758008521C8 /* ContentView.swift */,
+				B7159E1A2AF51758008521C8 /* StartView.swift */,
 				B7159E1C2AF5175C008521C8 /* Assets.xcassets */,
 				B7159E1E2AF5175C008521C8 /* Preview Content */,
 			);
@@ -257,7 +257,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B7159E1B2AF51758008521C8 /* ContentView.swift in Sources */,
+				B7159E1B2AF51758008521C8 /* StartView.swift in Sources */,
 				B7159E192AF51758008521C8 /* TheWordsApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -423,8 +423,8 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -432,9 +432,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = Louise.TheWords;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -452,8 +455,8 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -461,9 +464,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = Louise.TheWords;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
