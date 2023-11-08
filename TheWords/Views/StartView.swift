@@ -12,7 +12,7 @@ struct StartView: View {
     @State var longWord = ""
     @State var player1 = ""
     @State var player2 = ""
-
+    @State var isShowedGameScreen = false
     
     var body: some View {
         
@@ -30,7 +30,7 @@ struct StartView: View {
             
             
             Button("Start") {
-                print("Start")
+                isShowedGameScreen.toggle()
             }.font(.custom("AvenirNext-bold", size: 30))
                 .padding()
                 .foregroundColor(Color.white)
@@ -41,7 +41,9 @@ struct StartView: View {
             Spacer() 
         } .padding()
             .background(Color.purple)
-        
+            .fullScreenCover(isPresented: $isShowedGameScreen ) {
+                GameView()
+            }
     }
 }
 
