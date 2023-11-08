@@ -11,6 +11,8 @@ struct GameView: View {
     
     @State var word = ""
     
+    var viewModel: GameViewModel
+    
     var body: some View {
         VStack(spacing: 16) {
             HStack {
@@ -23,20 +25,20 @@ struct GameView: View {
                     .padding()
                     .foregroundColor(Color.white)
                 .font(.custom("AvenirNext-Bold", size: 18))
-                Spacer( )
+                Spacer( ) 
             }
             
     
-            Text("Терапия")
-                .font(.custom("AvenirNext-Bold", size: 40))
+            Text(viewModel.word)
+                .font(.custom("AvenirNext-Bold", size: 36 ))
                 .foregroundColor(.white)
             
             HStack(spacing: 12) {
                 VStack {
-                    Text("0")
+                    Text("\(viewModel.player1.score)")
                         .font(.custom("AvenirNext-Bold", size: 60))
                         .foregroundColor(.white)
-                    Text("Вася")
+                    Text(viewModel.player1.name)
                         .font(.custom("AvenirNext-Bold", size: 24))
                         .foregroundColor(.white)
                 }.padding(20)
@@ -47,10 +49,10 @@ struct GameView: View {
                 
                 
                 VStack {
-                    Text("0")
+                    Text("\(viewModel.player2.score)")
                         .font(.custom("AvenirNext-Bold", size: 60))
                         .foregroundColor(.white)
-                    Text("Вася")
+                    Text(viewModel.player2.name)
                         .font(.custom("AvenirNext-Bold", size: 24))
                         .foregroundColor(.white)
                 }.padding(20)
@@ -63,6 +65,10 @@ struct GameView: View {
             WordsTextField(word: $word, placeholder: "Your word...")
             
             Button("Done") {
+                let score = viewModel.check(word: word)
+                if score > 1 {
+                    self.word = ""
+                }
                 print(("Done"))
             }.padding()
                 .padding(.horizontal)
@@ -85,6 +91,6 @@ struct GameView: View {
 
 struct GameView_Previews: PreviewProvider {
     static var previews: some View {
-        GameView()
+        GameView(viewModel: GameViewModel(player1: Player(name: "Вася"), player2: Player(name: "Федя"), word: "Трансцендентный"))
     }
 }

@@ -42,7 +42,13 @@ struct StartView: View {
         } .padding()
             .background(Color.purple)
             .fullScreenCover(isPresented: $isShowedGameScreen ) {
-                GameView()
+                
+                let player1 = Player(name: self.player1)
+                let player2 = Player(name: self.player2)
+                
+                let viewModel = GameViewModel(player1: player1, player2: player2, word: longWord)
+                
+                GameView( viewModel: viewModel)
             }
     }
 }
