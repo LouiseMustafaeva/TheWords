@@ -7,6 +7,14 @@
 
 import Foundation
 
+enum WordError: Error {
+    case theSameWord
+    case beforeWord
+    case shortWord
+    case wrongWord
+    case undefinedError
+}
+
 class GameViewModel: ObservableObject {
     
     @Published var player1: Player
@@ -21,26 +29,26 @@ class GameViewModel: ObservableObject {
         self.word = word.uppercased()
     }
     
-    func validate(word: String) -> Bool {
+    func validate(word: String) throws {
         
         let word = word.uppercased()
         
         guard word != self.word else {
-            print("This word was main")
-            return false
+            print("This word was main!")
+            throw WordError.theSameWord
         }
         
         guard !(words.contains(word)) else {
-            print("This word was used")
-            return false
+            print("This word was used!")
+            throw WordError.beforeWord
         }
         
         guard word.count > 1 else {
-            print("This word is short")
-            return false
+            print("This word is short!")
+            throw WordError.shortWord
         }
         
-        return true
+        return
     }
     
     func wordToChars(word: String) -> [Character] {
@@ -54,9 +62,13 @@ class GameViewModel: ObservableObject {
         return chars
     }
     
-    func check(word: String) -> Int {
+    func check(word: String) throws -> Int {
         
-        guard self.validate(word: word) else { return 0 }
+        do {
+            try self.validate(word: word)
+        } catch {
+            throw error
+        }
         
         var longWordArray = wordToChars(word: self.word)
         var shortWordArray = wordToChars(word: word)
@@ -72,11 +84,14 @@ class GameViewModel: ObservableObject {
                 }
                 longWordArray.remove(at: i)
             } else {
-                return 0
+                throw WordError.wrongWord
             }
         }
         
-        guard result == word.uppercased() else { return 0 }
+        guard result == word.uppercased() else {
+            print("This word was main!")
+            throw WordError.wrongWord 
+        }
         
         words.append(result)
         

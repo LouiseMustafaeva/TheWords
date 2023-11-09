@@ -11,6 +11,9 @@ struct GameView: View {
     
     @State var word = ""
     @State private var confirmPresent = false
+    @State private var isAlertPresent = false
+    @State var alertText = ""
+    
     @Environment(\.dismiss) var dismiss
     
     var viewModel: GameViewModel
@@ -68,7 +71,31 @@ struct GameView: View {
             WordsTextField(word: $word, placeholder: "Your word...")
             
             Button("Done") {
-                let score = viewModel.check(word: word)
+                var score = 0
+                do {
+                    try score = viewModel.check(word: word)
+                } catch WordError.beforeWord {
+                    alertText = "This word was used!"
+                    isAlertPresent.toggle()
+                      
+                } catch WordError.shortWord {
+                    alertText = "This word is short!"
+                    isAlertPresent.toggle()
+                    
+                } catch WordError.theSameWord {
+                    alertText = "This word was main!"
+                    isAlertPresent.toggle()
+                    
+                } catch WordError.wrongWord {
+                    alertText = "This word is wrong!"
+                    isAlertPresent.toggle()
+                    
+                } catch {
+                    alertText = "Undefined error!"
+                    isAlertPresent.toggle()
+                }
+                
+                
                 if score > 1 {
                     self.word = ""
                 }
@@ -96,6 +123,11 @@ struct GameView: View {
                     self.dismiss()
                 })
                 Button("Cancel", role: .cancel, action: {})
+            }.alert(isPresented: $isAlertPresent) { () -> Alert in
+                let button = Alert.Button.default(Text("Ok")) {
+                    print("OK Button Pressed")
+                }
+                return Alert(title: Text(alertText ), message: Text(""), dismissButton: button)
             }
         
     }
