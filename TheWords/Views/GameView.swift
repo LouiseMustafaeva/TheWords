@@ -10,6 +10,8 @@ import SwiftUI
 struct GameView: View {
     
     @State var word = ""
+    @State private var confirmPresent = false
+    @Environment(\.dismiss) var dismiss
     
     var viewModel: GameViewModel
     
@@ -17,6 +19,7 @@ struct GameView: View {
         VStack(spacing: 16) {
             HStack {
                 Button("Exit") {
+                    confirmPresent.toggle()
                     print(("Exit"))
                 }.padding(16)
                     .padding(.horizontal)
@@ -86,11 +89,20 @@ struct GameView: View {
                             
         }.padding()
             .background(Color.purple)
+            .confirmationDialog("Are you sure you want to end the game?",
+                                isPresented: $confirmPresent,
+                                titleVisibility: .visible) {
+                Button("Yes", role: .destructive, action: {
+                    self.dismiss()
+                })
+                Button("Cancel", role: .cancel, action: {})
+            }
+        
     }
 }
 
 struct GameView_Previews: PreviewProvider {
     static var previews: some View {
-        GameView(viewModel: GameViewModel(player1: Player(name: "Вася"), player2: Player(name: "Федя"), word: "Трансцендентный"))
+        GameView(viewModel: GameViewModel(player1: Player(name: "Вася"), player2: Player(name: "Федя"), word: " "))
     }
 }
