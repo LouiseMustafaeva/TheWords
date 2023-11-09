@@ -14,6 +14,8 @@ struct GameView: View {
     @State private var isAlertPresent = false
     @State var alertText = ""
     
+    @State private var show = false
+    
     @Environment(\.dismiss) var dismiss
     
     var viewModel: GameViewModel
@@ -30,11 +32,11 @@ struct GameView: View {
                     .cornerRadius(12)
                     .padding()
                     .foregroundColor(Color.white)
-                .font(.custom("AvenirNext-Bold", size: 18))
-                Spacer( ) 
+                    .font(.custom("AvenirNext-Bold", size: 18))
+                Spacer( )
             }
             
-    
+            
             Text(viewModel.word)
                 .font(.custom("AvenirNext-Bold", size: 36 ))
                 .foregroundColor(.white)
@@ -51,8 +53,7 @@ struct GameView: View {
                     .frame(width: screen.width / 2.2, height: screen.width / 2.2)
                     .background(Color("FirstPlayer"))
                     .cornerRadius(12)
-                    .shadow(color: .purple, radius: 4)
-                
+                    .shadow(color: viewModel.isFirst ? .red : .clear , radius: 4)
                 
                 VStack {
                     Text("\(viewModel.player2.score)")
@@ -65,19 +66,20 @@ struct GameView: View {
                     .frame(width: screen.width / 2.2, height: screen.width / 2.2)
                     .background(Color("SecondPlayer"))
                     .cornerRadius(12)
-                    .shadow(color: .blue, radius: 4)
+                    .shadow(color: viewModel.isFirst ? .clear :  .blue, radius: 4)
             }
             
             WordsTextField(word: $word, placeholder: "Your word...")
             
             Button("Done") {
                 var score = 0
+                
                 do {
                     try score = viewModel.check(word: word)
                 } catch WordError.beforeWord {
                     alertText = "This word was used!"
                     isAlertPresent.toggle()
-                      
+                    
                 } catch WordError.shortWord {
                     alertText = "This word is short!"
                     isAlertPresent.toggle()
@@ -95,6 +97,11 @@ struct GameView: View {
                     isAlertPresent.toggle()
                 }
                 
+                if self.viewModel.words.count == 0 {
+                    self.show = false
+                } else {
+                    self.show = true
+                }
                 
                 if score > 1 {
                     self.word = ""
@@ -107,13 +114,22 @@ struct GameView: View {
                 .cornerRadius(12)
                 .padding(.vertical)
                 .foregroundColor(Color.white)
-            .font(.custom("AvenirNext-Bold", size: 26))
+                .font(.custom("AvenirNext-Bold", size: 26))
             
-            List {
-                
-            }.listStyle(.plain)
+            
+            if show {
+                List {
+                    ForEach(0..<self.viewModel.words.count, id: \.description) { item in
+                        WordCell(word: self.viewModel.words[item])
+                            .background(item % 2 == 0 ? Color("FirstPlayer") : Color("SecondPlayer"))
+                            .listRowInsets(EdgeInsets())
+                    }
+                }
+                .listStyle(.plain)
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
-                            
+                .scrollContentBackground(.hidden)
+            }
+            Spacer()
         }.padding()
             .background(Color.purple)
             .confirmationDialog("Are you sure you want to end the game?",
