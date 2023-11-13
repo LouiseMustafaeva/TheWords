@@ -23,7 +23,7 @@ struct GameView: View {
     var body: some View {
         VStack(spacing: 16) {
             HStack {
-                Button("Exit") {
+                Button("Game.exit".localized) {
                     confirmPresent.toggle()
                     print(("Exit"))
                 }.padding(16)
@@ -69,31 +69,31 @@ struct GameView: View {
                     .shadow(color: viewModel.isFirst ? .clear :  .blue, radius: 4)
             }
             
-            WordsTextField(word: $word, placeholder: "Your word...")
+            WordsTextField(word: $word, placeholder: "Game.yourWord".localized)
             
-            Button("Done") {
+            Button("Game.done".localized) {
                 var score = 0
                 
                 do {
                     try score = viewModel.check(word: word)
                 } catch WordError.beforeWord {
-                    alertText = "This word was used!"
+                    alertText = "Error.beforeWord".localized
                     isAlertPresent.toggle()
                     
                 } catch WordError.shortWord {
-                    alertText = "This word is short!"
+                    alertText = "Error.shortWord".localized
                     isAlertPresent.toggle()
                     
                 } catch WordError.theSameWord {
-                    alertText = "This word was main!"
+                    alertText = "Error.theSameWord".localized
                     isAlertPresent.toggle()
                     
                 } catch WordError.wrongWord {
-                    alertText = "This word is wrong!"
+                    alertText = "Error.wrongWord".localized
                     isAlertPresent.toggle()
                     
                 } catch {
-                    alertText = "Undefined error!"
+                    alertText = "Error.undefined".localized
                     isAlertPresent.toggle()
                 }
                 
@@ -106,7 +106,7 @@ struct GameView: View {
                 if score > 1 {
                     self.word = ""
                 }
-                print(("Done"))
+                
             }.padding()
                 .padding(.horizontal)
                 .frame(maxWidth: .infinity)
@@ -132,16 +132,16 @@ struct GameView: View {
             Spacer()
         }.padding()
             .background(Color.purple)
-            .confirmationDialog("Are you sure you want to end the game?",
+            .confirmationDialog("Game.exitConfirmation".localized,
                                 isPresented: $confirmPresent,
                                 titleVisibility: .visible) {
-                Button("Yes", role: .destructive, action: {
+                Button("Game.exitConfirmationYes".localized, role: .destructive, action: {
                     self.dismiss()
                 })
-                Button("Cancel", role: .cancel, action: {})
+                Button("Game.exitConfirmationCancel".localized, role: .cancel, action: {})
             }.alert(isPresented: $isAlertPresent) { () -> Alert in
                 let button = Alert.Button.default(Text("Ok")) {
-                    print("OK Button Pressed")
+                    
                 }
                 return Alert(title: Text(alertText ), message: Text(""), dismissButton: button)
             }

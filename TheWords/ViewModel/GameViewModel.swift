@@ -89,7 +89,7 @@ class GameViewModel: ObservableObject {
         }
         
         guard result == word.uppercased() else {
-            print("This word was main!")
+            print("This word is wrong!")
             throw WordError.wrongWord 
         }
         

@@ -13,6 +13,8 @@
 		B703FA892AFBB4ED00BE88E0 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = B703FA882AFBB4ED00BE88E0 /* Player.swift */; };
 		B703FA8C2AFBB5E700BE88E0 /* GameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B703FA8B2AFBB5E700BE88E0 /* GameViewModel.swift */; };
 		B703FA912AFCD76300BE88E0 /* WordCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B703FA902AFCD76300BE88E0 /* WordCell.swift */; };
+		B703FA942B026FED00BE88E0 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = B703FA962B026FED00BE88E0 /* Localizable.strings */; };
+		B703FA992B02719B00BE88E0 /* String+Localized.swift in Sources */ = {isa = PBXBuildFile; fileRef = B703FA982B02719B00BE88E0 /* String+Localized.swift */; };
 		B7159E192AF51758008521C8 /* TheWordsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7159E182AF51758008521C8 /* TheWordsApp.swift */; };
 		B7159E1B2AF51758008521C8 /* StartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7159E1A2AF51758008521C8 /* StartView.swift */; };
 		B7159E1D2AF5175C008521C8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B7159E1C2AF5175C008521C8 /* Assets.xcassets */; };
@@ -46,6 +48,9 @@
 		B703FA882AFBB4ED00BE88E0 /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		B703FA8B2AFBB5E700BE88E0 /* GameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewModel.swift; sourceTree = "<group>"; };
 		B703FA902AFCD76300BE88E0 /* WordCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordCell.swift; sourceTree = "<group>"; };
+		B703FA952B026FED00BE88E0 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
+		B703FA972B02700500BE88E0 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		B703FA982B02719B00BE88E0 /* String+Localized.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Localized.swift"; sourceTree = "<group>"; };
 		B7159E152AF51758008521C8 /* TheWords.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TheWords.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B7159E182AF51758008521C8 /* TheWordsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TheWordsApp.swift; sourceTree = "<group>"; };
 		B7159E1A2AF51758008521C8 /* StartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartView.swift; sourceTree = "<group>"; };
@@ -148,6 +153,8 @@
 				B703FA872AF542AB00BE88E0 /* Views */,
 				B7159E1C2AF5175C008521C8 /* Assets.xcassets */,
 				B7159E1E2AF5175C008521C8 /* Preview Content */,
+				B703FA962B026FED00BE88E0 /* Localizable.strings */,
+				B703FA982B02719B00BE88E0 /* String+Localized.swift */,
 			);
 			path = TheWords;
 			sourceTree = "<group>";
@@ -262,6 +269,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				ru,
 				Base,
 			);
 			mainGroup = B7159E0C2AF51758008521C8;
@@ -282,6 +290,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B7159E202AF5175C008521C8 /* Preview Assets.xcassets in Resources */,
+				B703FA942B026FED00BE88E0 /* Localizable.strings in Resources */,
 				B7159E1D2AF5175C008521C8 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -307,6 +316,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B703FA992B02719B00BE88E0 /* String+Localized.swift in Sources */,
 				B7159E1B2AF51758008521C8 /* StartView.swift in Sources */,
 				B703FA822AF53D1D00BE88E0 /* MainScreenTitleText.swift in Sources */,
 				B7159E192AF51758008521C8 /* TheWordsApp.swift in Sources */,
@@ -349,6 +359,18 @@
 			targetProxy = B7159E302AF5175C008521C8 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		B703FA962B026FED00BE88E0 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B703FA952B026FED00BE88E0 /* ru */,
+				B703FA972B02700500BE88E0 /* en */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		B7159E372AF5175C008521C8 /* Debug */ = {

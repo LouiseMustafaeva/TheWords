@@ -1,0 +1,25 @@
+/* 
+  Localizable.strings
+  TheWords
+
+  Created by Louise on 13/11/23.
+  
+*/
+
+"Authorization.player1" = "Игрок 1";
+"Authorization.player2" = "Игрок 2";
+"Authorization.word" = "Введите длинное слово";
+"Authorization.start" = "Начать";
+
+"Error.theSameWord" = "Это основное слово!";
+"Error.beforeWord" = "Это слово использовалось ранее!";
+"Error.shortWord" = "Это слишком короткое слово!";
+"Error.wrongWord" = "Это неправильное слово!";
+"Error.undefined" = "Непредвиденная ошибка!";
+
+"Game.yourWord" = "Ваше слово...";
+"Game.done" = "Готово!";
+"Game.exit" = "Выход";
+"Game.exitConfirmation" = "Вы уверены, что хотите завершить игру?";
+"Game.exitConfirmationYes" = "Да";
+"Game.exitConfirmationCancel" = "Отменить";

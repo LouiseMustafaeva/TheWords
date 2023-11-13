@@ -1,0 +1,25 @@
+/* 
+  Localizable.strings
+  TheWords
+
+  Created by Louise on 13/11/23.
+  
+*/
+
+"Authorization.player1" = "Player 1";
+"Authorization.player2" = "Player 2";
+"Authorization.word" = "Enter a long word";
+"Authorization.start" = "Start";
+
+"Error.theSameWord" = "This word was main!";
+"Error.beforeWord" = "This word was used!";
+"Error.shortWord" = "This word is short!";
+"Error.wrongWord" = "This word is wrong!";
+"Error.undefined" = "Undefined error!";
+
+"Game.yourWord" = "Your word...";
+"Game.done" = "Done!";
+"Game.exit" = "Exit";
+"Game.exitConfirmation" = "Are you sure you want to end the game?";
+"Game.exitConfirmationYes" = "Yes";
+"Game.exitConfirmationCancel" = "Cancel";
