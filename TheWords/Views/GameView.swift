@@ -23,7 +23,7 @@ struct GameView: View {
     var body: some View {
         VStack(spacing: 16) {
             HStack {
-                Button("Game.exit".localized) {
+                Button(L10n.Game.exit) {
                     confirmPresent.toggle()
                     print(("Exit"))
                 }.padding(16)
@@ -69,31 +69,31 @@ struct GameView: View {
                     .shadow(color: viewModel.isFirst ? .clear :  .blue, radius: 4)
             }
             
-            WordsTextField(word: $word, placeholder: "Game.yourWord".localized)
+            WordsTextField(word: $word, placeholder: L10n.Game.yourWord)
             
-            Button("Game.done".localized) {
+            Button(L10n.Game.done) {
                 var score = 0
                 
                 do {
                     try score = viewModel.check(word: word)
                 } catch WordError.beforeWord {
-                    alertText = "Error.beforeWord".localized
+                    alertText = L10n.Error.beforeWord
                     isAlertPresent.toggle()
                     
                 } catch WordError.shortWord {
-                    alertText = "Error.shortWord".localized
+                    alertText = L10n.Error.shortWord
                     isAlertPresent.toggle()
                     
                 } catch WordError.theSameWord {
-                    alertText = "Error.theSameWord".localized
+                    alertText = L10n.Error.theSameWord
                     isAlertPresent.toggle()
                     
                 } catch WordError.wrongWord {
-                    alertText = "Error.wrongWord".localized
+                    alertText = L10n.Error.wrongWord
                     isAlertPresent.toggle()
                     
                 } catch {
-                    alertText = "Error.undefined".localized
+                    alertText = L10n.Error.undefined
                     isAlertPresent.toggle()
                 }
                 
@@ -132,13 +132,13 @@ struct GameView: View {
             Spacer()
         }.padding()
             .background(Color.purple)
-            .confirmationDialog("Game.exitConfirmation".localized,
+            .confirmationDialog(L10n.Game.exitConfirmation,
                                 isPresented: $confirmPresent,
                                 titleVisibility: .visible) {
-                Button("Game.exitConfirmationYes".localized, role: .destructive, action: {
+                Button(L10n.Game.exitConfirmationYes, role: .destructive, action: {
                     self.dismiss()
                 })
-                Button("Game.exitConfirmationCancel".localized, role: .cancel, action: {})
+                Button(L10n.Game.exitConfirmationCancel, role: .cancel, action: {})
             }.alert(isPresented: $isAlertPresent) { () -> Alert in
                 let button = Alert.Button.default(Text("Ok")) {
                     

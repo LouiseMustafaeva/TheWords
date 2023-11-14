@@ -21,16 +21,16 @@ struct StartView: View {
             MainScreenTitleText(text: "The Words")
             Spacer()
             
-            WordsTextField(word: $longWord, placeholder: "Authorization.word".localized)
+            WordsTextField(word: $longWord, placeholder: L10n.Authorization.word)
                 .padding(.top, 20)
             
-            WordsTextField(word: $player1, placeholder: "Authorization.player1".localized)
+            WordsTextField(word: $player1, placeholder: L10n.Authorization.player1)
                 .padding(.top, 20)
 
-            WordsTextField(word: $player2, placeholder: "Authorization.player2".localized)
+            WordsTextField(word: $player2, placeholder: L10n.Authorization.player2)
             
             
-            Button("Authorization.start".localized) {
+            Button(L10n.Authorization.start) {
                 
                 if longWord.count > 7 {
                     isShowedGameScreen.toggle()
@@ -52,13 +52,13 @@ struct StartView: View {
                         let button = Alert.Button.default(Text("Ok")) {
                             print("OK Button Pressed")
                         }
-                return Alert(title: Text("Error.shortWord".localized), message: Text(""), dismissButton: button)
+                return Alert(title: Text(L10n.Error.shortWord), message: Text(""), dismissButton: button)
              }
         
             .fullScreenCover(isPresented: $isShowedGameScreen ) {
                 
-                let name1 = player1 == "" ? "Authorization.player1".localized : player1
-                let name2 = player2 == "" ? "Authorization.player2".localized : player2
+                let name1 = player1 == "" ? L10n.Authorization.player1 : player1
+                let name2 = player2 == "" ? L10n.Authorization.player2 : player2
                 
                 let player1 = Player(name: name1)
                 let player2 = Player(name: name2 )
