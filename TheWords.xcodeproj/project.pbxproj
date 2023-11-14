@@ -65,6 +65,7 @@
 		B7159E2F2AF5175C008521C8 /* TheWordsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TheWordsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B7159E332AF5175C008521C8 /* TheWordsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TheWordsUITests.swift; sourceTree = "<group>"; };
 		B7159E352AF5175C008521C8 /* TheWordsUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TheWordsUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		B729EB882B03AC10009EB585 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -170,6 +171,7 @@
 		B7159E172AF51758008521C8 /* TheWords */ = {
 			isa = PBXGroup;
 			children = (
+				B729EB882B03AC10009EB585 /* Info.plist */,
 				B7159E182AF51758008521C8 /* TheWordsApp.swift */,
 				B703FA8D2AFBC7C300BE88E0 /* ViewModel */,
 				B703FA8A2AFBB57D00BE88E0 /* Model */,
@@ -352,7 +354,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "export PATH=\"$PATH:/opt/homebrew/bin\"\nif which swiftgen > /dev/null; then\n    swiftgen\nelse\n    echo \"warning: SwiftGen not installed, download from https://github.com/SwiftGen/SwiftGen\"\n    exit 1\nfi\n";
+			shellScript = "TheWords/SwiftGen/swiftgen.sh\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -545,7 +547,7 @@
 				DEVELOPMENT_TEAM = 5GR8WF3325;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_FILE = TheWords/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
@@ -577,7 +579,7 @@
 				DEVELOPMENT_TEAM = 5GR8WF3325;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_FILE = TheWords/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
